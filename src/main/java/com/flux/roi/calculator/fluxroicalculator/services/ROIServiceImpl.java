@@ -13,25 +13,31 @@ public class ROIServiceImpl implements ROIService{
 	public ROICalculatorResponse calculateROI(ROICalculatorDto roiCalculatorDto) {
 		
 		
-		int grossKWDispensed  = roiCalculatorDto.getAvgChargingSessionDuration()
-				* roiCalculatorDto.getStationKWOutput()
-				* roiCalculatorDto.getNoOfChargingStations()
-				* roiCalculatorDto.getChargingSessionsPerDayPerUnit()
-				* roiCalculatorDto.getDaysOfUsePerMonth();
+		float grossKWDispensed  = (roiCalculatorDto.getAvgChargingSessionDuration()
+										* roiCalculatorDto.getStationKWOutput()
+										* roiCalculatorDto.getNoOfChargingStations()
+										* roiCalculatorDto.getChargingSessionsPerDayPerUnit()
+										* roiCalculatorDto.getDaysOfUsePerMonth());
 
 		
-		float kwCost = grossKWDispensed * roiCalculatorDto.getKwCost();
+		double kwCost = grossKWDispensed * roiCalculatorDto.getKwCost();
 		
-		float kwGross = grossKWDispensed * roiCalculatorDto.getKwMSRP();
+		double kwGross = grossKWDispensed * roiCalculatorDto.getKwMSRP();
 		
-		float margin = kwGross - kwCost;
+		double margin = kwGross - kwCost;
 		
-		float monthsToPayOff = roiCalculatorDto.getProjectCost() /margin;
+		double monthsToPayOff = roiCalculatorDto.getProjectCost() /margin;
 		
-		float yearsToOff = monthsToPayOff / 12;
+		double yearsToOff = monthsToPayOff / 12;
 		
 		DecimalFormat decimalFormat = new DecimalFormat("#.##");
-		monthsToPayOff = Float.valueOf(decimalFormat.format(monthsToPayOff));
+//		grossKWDispensed = Float.valueOf(decimalFormat.format(grossKWDispensed));
+		kwCost = Double.valueOf(decimalFormat.format(kwCost));
+		kwGross = Double.valueOf(decimalFormat.format(kwGross));
+		margin = Double.valueOf(decimalFormat.format(margin));
+		monthsToPayOff = Double.valueOf(decimalFormat.format(monthsToPayOff));
+		yearsToOff = Double.valueOf(decimalFormat.format(yearsToOff));
+		
 		
 		ROICalculatorResponse roiCalculatorResponse = new ROICalculatorResponse();
 		

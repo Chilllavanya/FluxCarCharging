@@ -5,7 +5,7 @@ import lombok.*;
 
 public class ROICalculatorDto {
 	private int avgChargingSessionDuration;
-	private int stationKWOutput;
+	private float stationKWOutput;
 	private int noOfChargingStations;
 	private int chargingSessionsPerDayPerUnit;
 	private int daysOfUsePerMonth;
@@ -21,11 +21,11 @@ public class ROICalculatorDto {
 		this.avgChargingSessionDuration = avgChargingSessionDuration;
 	}
 	
-	public int getStationKWOutput() {
+	public float getStationKWOutput() {
 		return stationKWOutput;
 	}
 	
-	public void setStationKWOutput(int stationKWOutput) {
+	public void setStationKWOutput(float stationKWOutput) {
 		this.stationKWOutput = stationKWOutput;
 	}
 	
