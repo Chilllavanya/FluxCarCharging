@@ -3,46 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" th:href="index.css">
 </head>
 <body>
-    <form id="form">
-        <label for="p_cost">Project Cost</label>
-        <input type="number" id="p_cost" name="p_cost" min="0" step="0.01"><br><br>
-        <label for="avg">Avg Charging Session Duration (Hours)</label>
-        <input type="number" id="avg" name="avg" min="0"><br><br>
-        <label>Station kW Output</label>
-        <select name="" id="kw_out" class="dropdown">
-            <option value="1">7.7 (Ezra)</option>
-            <option value="2">11 (Rosa)</option>
-            <option value="3">19 (Howard)</option>
-            <option value="4">190 (LLoyd)</option>
-        </select><br><br>
-        <label for="num">No. of Charging Stations: </label>
-        <input type="number" id="num" name="num" min="0"><br><br>
-        <label for="charging/day">Charging Sessions per unit per day: </label>
-        <input type="number" id="charging/day" name="charging/day" min="0"><br><br>
-        <label for="days/month">Days of use per month: </label>
-        <input type="number" id="days/month" name="days/month" min="0"><br><br>
-        <label for="kw_cost">kW Cost: </label>
-        <input type="number" id="kw_cost" name="kw_cost" min="0" step="0.01"><br><br>
-        <label for="kW_MSRP">kW MSRP: </label>
-        <input type="number" id="kW_MSRP" name="lname" min="0" step="0.01"><br><br>
-        <label for="gross">Gross kW Dispensed (Month): </label>
-        <p class="output" id="gross" style="display: inline;">$</p><br><br>
-        <label for="kwCost">kW Cost: </label>
-        <p class="output" id="kwCost" style="display: inline;">$</p><br><br>
-        <label for="kw_gross">kW Gross: </label>
-        <p class="output" id="kw_gross" style="display: inline;">$</p><br><br>
-        <label for="margin">Margin $: </label>
-        <p class="output" id="margin" style="display: inline;">$</p><br><br>
-        <label for="months">Months to Payoff: </label>
-        <p class="output" id="months" style="display: inline;">months</p><br><br>
-        <label for="years">Years to Payoff: </label>
-        <p class="output" id="years" style="display: inline;"> years</p><br><br>
+<form id="form">
+    <div id="_form">
+        <div id="in">
+            <label for="p_cost">Project Cost</label>
+            <input type="number" id="p_cost" name="p_cost" min="0" step="0.01">
 
-        <input type="submit" value="Submit"><br><br>
-    </form>
+            <label for="avg">Avg Charging Session Duration (Hours)</label>
+            <input type="number" id="avg" name="avg" min="0">
 
-    <script type="text/javascript" th:src="index.js"></script>
+            <label>Station kW Output</label>
+            <select name="" id="kw_out" class="dropdown">
+                <option value="1">7.7 (Ezra)</option>
+                <option value="2">11 (Rosa)</option>
+                <option value="3">19 (Howard)</option>
+                <option value="4">190 (LLoyd)</option>
+            </select>
+
+            <label for="num">No. of Charging Stations: </label>
+            <input type="number" id="num" name="num" min="0">
+
+            <label for="charging/day">Charging Sessions per unit per day: </label>
+            <input type="number" id="charging/day" name="charging/day" min="0">
+
+            <label for="days/month">Days of use per month: </label>
+            <input type="number" id="days/month" name="days/month" min="0">
+
+            <label for="kw_cost">kW Cost: </label>
+            <input type="number" id="kw_cost" name="kw_cost" min="0" step="0.01">
+
+            <label for="kW_MSRP">kW MSRP: </label>
+            <input type="number" id="kW_MSRP" name="lname" min="0" step="0.01">
+        </div>
+
+        <span class="vert_line"></span>
+
+        <div id="out">
+            <label for="gross">Gross kW Dispensed (Month): </label>
+            <div class="output" id="gross" style="display: inline;"></div>
+
+            <label for="kwCost">kW Cost $: </label>
+            <div class="output" id="kwCost" style="display: inline;"></div>
+
+            <label for="kw_gross">kW Gross $: </label>
+            <div class="output" id="kw_gross" style="display: inline;"></div>
+
+            <label for="margin">Margin $: </label>
+            <div class="output" id="margin" style="display: inline;"></div>
+
+            <label for="months">Months to Payoff: </label>
+            <div class="output" id="months" style="display: inline;"></div>
+
+            <label for="years">Years to Payoff: </label>
+            <div class="output" id="years" style="display: inline;"></div>
+        </div>
+    </div>
+
+    <input id="submit" type="submit" value="Submit">
+</form>
+
+<script type="text/javascript" th:src="index.js"></script>
 </body>
 </html>
