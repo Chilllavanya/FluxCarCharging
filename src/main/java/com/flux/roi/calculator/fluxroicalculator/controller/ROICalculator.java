@@ -41,7 +41,7 @@ public class ROICalculator {
 				return new ResponseEntity<>(new ErrorResponse("Days of use per Month should be greater than 0."), HttpStatus.OK);
 				
 			}
-			if (roiCalculatorDto.getProjectCost() < 0.00) {
+			if (roiCalculatorDto.getProjectCost() < 0) {
 				return new ResponseEntity<>(new ErrorResponse("ProjectCost should be greater than 0."), HttpStatus.OK);
 				
 				

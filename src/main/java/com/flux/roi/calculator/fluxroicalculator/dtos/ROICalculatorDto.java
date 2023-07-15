@@ -9,7 +9,7 @@ public class ROICalculatorDto {
 	private int noOfChargingStations;
 	private int chargingSessionsPerDayPerUnit;
 	private int daysOfUsePerMonth;
-	private float projectCost;
+	private int projectCost;
 	private float kwCost;
 	private float kwMSRP;
 	
@@ -73,7 +73,7 @@ public class ROICalculatorDto {
 		return projectCost;
 	}
 	
-	public void setProjectCost(float projectCost) {
+	public void setProjectCost(int projectCost) {
 		this.projectCost = projectCost;
 	}
 }

@@ -5,6 +5,7 @@ import com.flux.roi.calculator.fluxroicalculator.response.ROICalculatorResponse;
 import org.springframework.stereotype.Service;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 @Service
 public class ROIServiceImpl implements ROIService{
@@ -37,8 +38,7 @@ public class ROIServiceImpl implements ROIService{
 		margin = Double.valueOf(decimalFormat.format(margin));
 		monthsToPayOff = Double.valueOf(decimalFormat.format(monthsToPayOff));
 		yearsToOff = Double.valueOf(decimalFormat.format(yearsToOff));
-		
-		
+
 		ROICalculatorResponse roiCalculatorResponse = new ROICalculatorResponse();
 		
 		roiCalculatorResponse.setGrossKWDispensed(grossKWDispensed);

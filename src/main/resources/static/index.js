@@ -13,6 +13,16 @@ const headers = {
 };
 
 
+function formatInput(inp) {
+    var currentInput = inp.value;
+    var fixedInput = parseInt(currentInput.replace(/[A-Za-z!@#$%^,&*()]/g, '')).toLocaleString("en-US");
+    inp.value = fixedInput;
+
+    if (inp.value == "NaN")
+        inp.value = "";
+}
+
+
 async function handleSubmit(e) {
     e.preventDefault();
 
@@ -34,7 +44,7 @@ async function handleSubmit(e) {
         noOfChargingStations: num.value,
         chargingSessionsPerDayPerUnit: charging_p_day.value,
         daysOfUsePerMonth: days_p_month.value,
-        projectCost: p_cost.value,
+        projectCost: parseInt(p_cost.value.replace(/[A-Za-z!@#$%^,&*()]/g, '')),
         kwCost: kw_cost.value,
         kwMSRP: kW_MSRP.value
     };
@@ -57,15 +67,12 @@ async function handleSubmit(e) {
 
         var resp_json = await response.json();
 
-        gross.innerHTML = resp_json.grossKWDispensed;
-        kwCost.innerHTML = resp_json.kwCost;
-        kw_gross.innerHTML = resp_json.kwGross;
-        margin.innerHTML = resp_json.margin;
-        console.log(resp_json);
-        months.innerHTML = resp_json.monthsToPayOff;
-        years.innerHTML = resp_json.yearsToOff;
-    } else {
-        console.log("error")
+        gross.innerHTML = Math.round(resp_json.grossKWDispensed).toLocaleString("en-US");
+        kwCost.innerHTML = '$ ' + Math.round(resp_json.kwCost).toLocaleString("en-US");
+        kw_gross.innerHTML = '$ ' + Math.round(resp_json.kwGross).toLocaleString("en-US");
+        margin.innerHTML = '$ ' + Math.round(resp_json.margin).toLocaleString("en-US");
+        months.innerHTML = resp_json.monthsToPayOff.toLocaleString("en-US");
+        years.innerHTML = resp_json.yearsToOff.toLocaleString("en-US");
     }
 }
 

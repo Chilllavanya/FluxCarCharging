@@ -11,10 +11,11 @@
     <div id="_form">
         <div id="in">
             <label for="p_cost">Project Cost</label>
-            <input type="number" id="p_cost" name="p_cost" min="0" step="0.01">
+            <input type="text" id="p_cost" name="p_cost" oninput="formatInput(this)">
+            <p style="position: relative; float: right; left: 20px;">$ </p>
 
             <label for="avg">Avg Charging Session Duration (Hours)</label>
-            <input type="number" id="avg" name="avg" min="0">
+            <input type="number" id="avg" name="avg" min="0.1" step="0.1">
 
             <label>Station kW Output</label>
             <select name="" id="kw_out" class="dropdown">
@@ -25,19 +26,21 @@
             </select>
 
             <label for="num">No. of Charging Stations: </label>
-            <input type="number" id="num" name="num" min="0">
+            <input type="number" id="num" name="num" min="1">
 
             <label for="charging/day">Charging Sessions per unit per day: </label>
-            <input type="number" id="charging/day" name="charging/day" min="0">
+            <input type="number" id="charging/day" name="charging/day" min="1">
 
             <label for="days/month">Days of use per month: </label>
-            <input type="number" id="days/month" name="days/month" min="0">
+            <input type="number" id="days/month" name="days/month" min="0" max="31">
 
             <label for="kw_cost">kW Cost: </label>
-            <input type="number" id="kw_cost" name="kw_cost" min="0" step="0.01">
+            <input type="number" id="kw_cost" name="kw_cost" min="0.01" step="0.01">
+            <p style="position: relative; float: right; left: 20px;">$ </p>
 
             <label for="kW_MSRP">kW MSRP: </label>
-            <input type="number" id="kW_MSRP" name="lname" min="0" step="0.01">
+            <input type="number" id="kW_MSRP" name="lname" min="0.01" step="0.01">
+            <p style="position: relative; float: right; left: 20px;">$ </p>
         </div>
 
         <span class="vert_line"></span>
@@ -46,13 +49,13 @@
             <label for="gross">Gross kW Dispensed (Month): </label>
             <div class="output" id="gross" style="display: inline;"></div>
 
-            <label for="kwCost">kW Cost $: </label>
+            <label for="kwCost">kW Cost : </label>
             <div class="output" id="kwCost" style="display: inline;"></div>
 
-            <label for="kw_gross">kW Gross $: </label>
+            <label for="kw_gross">kW Revenue : </label>
             <div class="output" id="kw_gross" style="display: inline;"></div>
 
-            <label for="margin">Margin $: </label>
+            <label for="margin">Gross Margin : </label>
             <div class="output" id="margin" style="display: inline;"></div>
 
             <label for="months">Months to Payoff: </label>

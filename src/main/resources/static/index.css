@@ -54,7 +54,7 @@ input, div.output, select {
 
 select {
     height: 50px;
-    width: 130px;
+    width: 147px;
 }
 
 div.output {
@@ -82,4 +82,8 @@ div.output {
 .vert_line {
 
     margin: 0 30px;
+}
+
+input {
+    padding-left: 30px;
 }
